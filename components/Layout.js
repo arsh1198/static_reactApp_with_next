@@ -18,6 +18,9 @@ const Layout = ({ children, title }) => (
       <Link href="/">
         <a>Home</a>
       </Link>
+      <Link href="/blog">
+        <a>Blog</a>
+      </Link>
       <Link href="/about">
         <a>About</a>
       </Link>
@@ -33,12 +36,13 @@ const Layout = ({ children, title }) => (
         flex-direction: column;
       }
       header {
-        width: 100%;
+        width 100%;
         display: flex;
         justify-content: space-around;
         padding: 1em;
         font-size: 1.2rem;
         background: indigo;
+        box-sizing: border-box;
       }
       header a {
         color: white;
@@ -52,12 +56,8 @@ const Layout = ({ children, title }) => (
       footer {
         padding: 1em;
       }
-    `}</style>
-    <style global jsx>{`
-      body {
-        margin: 0;
-        font-size: 110%;
-        background: #f0f0f0;
+      children {
+        padding: 10px;
       }
     `}</style>
   </div>
