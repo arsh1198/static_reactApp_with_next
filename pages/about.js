@@ -2,25 +2,16 @@ import { useEffect, useState } from "react";
 import Layout from "../components/Layout";
 import Error from "./_error";
 
-const userName = "turbonater";
+const USERNAME = "trugamr";
 
 const About = ({ user, error }) => {
-  const [data, setData] = useState(user.login);
-  const [avatar, setAvatar] = useState(user.avatar_url);
-  useEffect(() => {
-    fetchUser(userName).then(({ user }) => {
-      setData(user.login);
-      setAvatar(user.avatar_url);
-    });
-  }, []);
-
   return error ? (
     <Error status={error}></Error>
   ) : (
     <div>
       <Layout title="About">
-        <p>{data}</p>
-        <img src={avatar} alt="Avatar" height="200px" />
+        <p>{user.login}</p>
+        <img src={user.avatar_url} alt="Avatar" height="200px" />
       </Layout>
     </div>
   );
@@ -34,7 +25,7 @@ const fetchUser = async (userName) => {
 };
 
 export async function getStaticProps() {
-  const { user, error } = await fetchUser(userName);
+  const { user, error } = await fetchUser(USERNAME);
 
   return {
     props: {
